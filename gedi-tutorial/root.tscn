@@ -55,16 +55,26 @@ tile_set = SubResource("TileSet_m2f2n")
 [node name="Enemy_Spawners" type="Node2D" parent="." unique_id=1078332270]
 
 [node name="Spawner_1" type="Node2D" parent="Enemy_Spawners" unique_id=1974185980]
-position = Vector2(536, 515)
+position = Vector2(538, 544)
 script = ExtResource("4_28aoi")
 
 [node name="Spawner_2" type="Node2D" parent="Enemy_Spawners" unique_id=1488631240]
-position = Vector2(903, 294)
+position = Vector2(891, 320)
 script = ExtResource("4_28aoi")
 
 [node name="Spawner_3" type="Node2D" parent="Enemy_Spawners" unique_id=1347016592]
-position = Vector2(1121, 520)
+position = Vector2(1122, 544)
 script = ExtResource("4_28aoi")
+
+[node name="Label" type="Label" parent="." unique_id=457188996]
+visible = false
+offset_left = 476.0
+offset_top = 274.0
+offset_right = 676.0
+offset_bottom = 374.0
+text = "You win!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="area_entered" from="Player/Hitbox" to="Player" method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Player/Hitbox" to="Player" method="_on_hitbox_body_entered"]

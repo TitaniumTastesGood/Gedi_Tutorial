@@ -40,6 +40,7 @@ func check_if_dead():
 		die()
 
 func die():
+	$/root/Root.check_for_win()
 	get_tree().queue_delete(self)
 
 func _physics_process(_delta):
