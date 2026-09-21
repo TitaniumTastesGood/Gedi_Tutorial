@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready():
-	pass
+	randomize()
 
 func spawn_enemy(enemy):
 	add_child(enemy)
