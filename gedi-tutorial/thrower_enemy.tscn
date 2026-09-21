@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cry36mrfbu1st"]
+
+[ext_resource type="Script" uid="uid://cru6i6v1q5e8c" path="res://thrower.gd" id="1_rch21"]
+[ext_resource type="Texture2D" uid="uid://cxab55jlu7nlj" path="res://icon.svg" id="2_6u1gx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vao7y"]
+size = Vector2(40, 48)
+
+[node name="Thrower_Enemy" type="CharacterBody2D" unique_id=1467306761]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_rch21")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=252612474]
+self_modulate = Color(0.96403104, 0.31560493, 0.22547463, 1)
+position = Vector2(0, -25.399998)
+scale = Vector2(0.328125, 0.4)
+texture = ExtResource("2_6u1gx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1718802407]
+position = Vector2(0, -24.4)
+shape = SubResource("RectangleShape2D_vao7y")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1418520100]
+position = Vector2(0, -25.4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=84009495]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_vao7y")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

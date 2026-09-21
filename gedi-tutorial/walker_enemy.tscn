@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cylau3kew5pn2"]
+
+[ext_resource type="Script" uid="uid://63vrqtkqvnr0" path="res://walker.gd" id="1_ldb6h"]
+[ext_resource type="Texture2D" uid="uid://cxab55jlu7nlj" path="res://icon.svg" id="2_lwh3n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vao7y"]
+size = Vector2(32, 33)
+
+[node name="Walker_Enemy" type="CharacterBody2D" unique_id=1467306761]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ldb6h")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=252612474]
+self_modulate = Color(0.96403104, 0.31560493, 0.22547463, 1)
+position = Vector2(0.20000076, -18.8)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_lwh3n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1718802407]
+position = Vector2(0.20000076, -16.3)
+shape = SubResource("RectangleShape2D_vao7y")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1418520100]
+position = Vector2(0.20000076, -18.8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=725137865]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_vao7y")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
