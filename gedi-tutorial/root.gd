@@ -1,5 +1,7 @@
 extends Node2D
 
+var guys_killed = 0
+
 func _ready():
 	randomize()
 
@@ -7,7 +9,6 @@ func spawn_enemy(enemy):
 	add_child(enemy)
 
 func check_for_win():
-	for spawner in get_node("Enemy_Spawners").get_children():
-		if spawner.enemies_left >= 0:
-			return false
-	$You_Win_Text.visible = true
+	guys_killed += 1
+	if guys_killed >= 12:
+		$You_Win_Text.visible = true

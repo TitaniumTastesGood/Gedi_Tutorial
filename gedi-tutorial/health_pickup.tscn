@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://tqnkmiduk03m"]
 
+[ext_resource type="Script" uid="uid://dr0vjbddamfbb" path="res://health_pickup.gd" id="1_awyve"]
 [ext_resource type="Texture2D" uid="uid://cxab55jlu7nlj" path="res://icon.svg" id="2_xl6eh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vao7y"]
@@ -8,6 +9,7 @@ radius = 16.0
 [node name="Health_Pickup" type="CharacterBody2D" unique_id=783289030]
 collision_layer = 4
 collision_mask = 4
+script = ExtResource("1_awyve")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=941384418]
 self_modulate = Color(0, 0.5658821, 0.44632804, 1)

@@ -45,6 +45,7 @@ func die():
 func _process(_delta):
 	if dead:
 		has_control = false
+		velocity = Vector2.ZERO
 	if has_control:
 		if Input.is_action_just_pressed("jump"):
 			if is_on_floor():

@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_vao7y"]
 radius = 13.0
 
-[node name="score_ball" type="CharacterBody2D" unique_id=783289030]
+[node name="Score_Ball" type="CharacterBody2D" unique_id=783289030]
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_74i1h")
