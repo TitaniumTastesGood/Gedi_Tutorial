@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cw8upc5ypyxkk"]
+
+[ext_resource type="Texture2D" uid="uid://cxab55jlu7nlj" path="res://icon.svg" id="1_72qat"]
+[ext_resource type="Script" uid="uid://dymyggi708a4b" path="res://score_ball.gd" id="1_74i1h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vao7y"]
+radius = 13.0
+
+[node name="score_ball" type="CharacterBody2D" unique_id=783289030]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_74i1h")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=941384418]
+self_modulate = Color(1.4439225e-06, 0.73768514, 0.2825849, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_72qat")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2031464830]
+shape = SubResource("CircleShape2D_vao7y")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1634262767]
+collision_layer = 15
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=243219821]
+shape = SubResource("CircleShape2D_vao7y")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

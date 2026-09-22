@@ -1,6 +1,7 @@
 @abstract
 extends CharacterBody2D
 
+var max_hp
 var hp
 var horizontal_speed = 0
 var vertical_speed = 0
@@ -10,7 +11,7 @@ var has_control = true
 const GRAVITY = 22
 
 func _ready():
-	pass
+	hp = max_hp
 
 func apply_knockback():
 	has_control = false
@@ -30,6 +31,11 @@ func gain_invincibility_frames():
 	get_node("Hitbox/CollisionShape2D").set_deferred("disabled", true)
 	await get_tree().create_timer(1.4).timeout
 	get_node("Hitbox/CollisionShape2D").set_deferred("disabled", false)
+
+func heal(amount:int):
+	hp += amount
+	if amount >= max_hp:
+		hp = max_hp
 
 func take_damage(damage:int):
 	hp -= damage

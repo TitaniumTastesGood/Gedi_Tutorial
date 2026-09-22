@@ -4,16 +4,27 @@ const SPEED = 200
 const JUMP_FORCE = 700
 var airborne = true
 var can_fire = true
+var score = 0
+var dead = false
 
 func _ready():
-	hp = 24
+	max_hp = 24
 	facing_direction = Vector2.RIGHT
+	super()
 
 func take_damage(damage:int):
-	hp -= damage
 	apply_knockback()
 	gain_invincibility_frames()
-	check_if_dead()
+	super(damage)
+	$/root/Root/Hp_Text.text = "HP: " + str(hp)
+
+func heal(amount:int):
+	super(amount)
+	$/root/Root/Hp_Text.text = "HP: " + str(hp)
+
+func gain_score(amount:int):
+	score += amount
+	$/root/Root/Score_Text.text = str(score).pad_zeros(7)
 
 func attack():
 	can_fire = false
@@ -26,7 +37,14 @@ func attack():
 	await get_tree().create_timer(0.3).timeout
 	can_fire = true
 
+func die():
+	has_control = false
+	visible = false
+	dead = true
+
 func _process(_delta):
+	if dead:
+		has_control = false
 	if has_control:
 		if Input.is_action_just_pressed("jump"):
 			if is_on_floor():
@@ -56,5 +74,6 @@ func _on_hitbox_area_entered(area):
 func _on_hitbox_body_entered(body):
 	if body == self:
 		return
-	if body.deals_contact_damage:
-		take_damage(body.damage)
+	if "deals_contact_damage" in body:
+		if body.deals_contact_damage:
+			take_damage(body.damage)

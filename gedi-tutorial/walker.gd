@@ -3,10 +3,10 @@ extends "res://enemy.gd"
 const SPEED = 120
 
 func _ready():
-	super()
-	hp = 3
+	max_hp = 3
 	damage = 4
 	auto_turnaround = true
+	super()
 
 func attack():
 	pass

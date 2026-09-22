@@ -10,4 +10,4 @@ func check_for_win():
 	for spawner in get_node("Enemy_Spawners").get_children():
 		if spawner.enemies_left >= 0:
 			return false
-	$Label.visible = true
+	$You_Win_Text.visible = true

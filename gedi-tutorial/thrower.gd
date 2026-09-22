@@ -4,10 +4,11 @@ var attack_timer = 1.5
 var attack_time
 
 func _ready():
-	super()
-	hp = 5
+	max_hp = 5
 	deals_contact_damage = false
 	attack_time = attack_timer
+	score_value = 500
+	super()
 
 func attack():
 	var bullet = load("res://axe_bullet.tscn").instantiate()
