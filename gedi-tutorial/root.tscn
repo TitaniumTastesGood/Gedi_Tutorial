@@ -3,7 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://cxab55jlu7nlj" path="res://icon.svg" id="1_pq8q7"]
 [ext_resource type="Script" uid="uid://ub8sopb1syyj" path="res://player.gd" id="1_pyidc"]
 [ext_resource type="Script" uid="uid://4nfwj7sf2upq" path="res://root.gd" id="1_vvh5c"]
-[ext_resource type="Script" uid="uid://1h583gkv1qqx" path="res://spawner.gd" id="4_28aoi"]
+[ext_resource type="Script" uid="uid://bc7i5a4kn6wb5" path="res://spawner_walker.gd" id="4_28aoi"]
+[ext_resource type="Script" uid="uid://b62ag4vf54kwc" path="res://spawner_thrower.gd" id="5_jnlp7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vvh5c"]
 size = Vector2(42, 72)
@@ -60,7 +61,7 @@ script = ExtResource("4_28aoi")
 
 [node name="Spawner_2" type="Node2D" parent="Enemy_Spawners" unique_id=1488631240]
 position = Vector2(891, 320)
-script = ExtResource("4_28aoi")
+script = ExtResource("5_jnlp7")
 
 [node name="Spawner_3" type="Node2D" parent="Enemy_Spawners" unique_id=1347016592]
 position = Vector2(1122, 544)

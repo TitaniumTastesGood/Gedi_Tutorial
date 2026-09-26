@@ -1,7 +1,6 @@
 extends "res://spawn_factory.gd"
 
 func _ready():
-	enemies_left = 3
-	spawn_timer = 6
-	spawn_time = 0
+	enemies_left = 4
+	spawn_timer = 3
 	spawns = load("res://walker_enemy.tscn")

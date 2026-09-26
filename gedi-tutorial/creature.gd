@@ -34,7 +34,7 @@ func gain_invincibility_frames():
 
 func heal(amount:int):
 	hp += amount
-	if amount >= max_hp:
+	if hp >= max_hp:
 		hp = max_hp
 
 func take_damage(damage:int):
@@ -46,7 +46,7 @@ func check_if_dead():
 		die()
 
 func die():
-	$/root/Root.check_for_win()
+	get_node("/root/GameManager").check_for_win()
 	get_tree().queue_delete(self)
 
 func _physics_process(_delta):

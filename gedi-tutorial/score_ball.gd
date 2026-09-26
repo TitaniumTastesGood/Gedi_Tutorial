@@ -1,4 +1,4 @@
 extends "res://powerup.gd"
 
-func pickup_effect(player):
-	player.gain_score(1000)
+func pickup_effect(_player):
+	get_node("/root/GameManager").gain_score(1000)

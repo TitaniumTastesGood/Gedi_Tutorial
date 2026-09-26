@@ -4,7 +4,6 @@ const SPEED = 200
 const JUMP_FORCE = 700
 var airborne = true
 var can_fire = true
-var score = 0
 var dead = false
 
 func _ready():
@@ -21,10 +20,6 @@ func take_damage(damage:int):
 func heal(amount:int):
 	super(amount)
 	$/root/Root/Hp_Text.text = "HP: " + str(hp)
-
-func gain_score(amount:int):
-	score += amount
-	$/root/Root/Score_Text.text = str(score).pad_zeros(7)
 
 func attack():
 	can_fire = false

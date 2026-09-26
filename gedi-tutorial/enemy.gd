@@ -12,7 +12,7 @@ func _ready():
 
 func die():
 	super()
-	player.gain_score(score_value)
+	get_node("/root/GameManager").gain_score(score_value)
 	drop_powerup()
 
 func _on_hitbox_area_entered(area):
